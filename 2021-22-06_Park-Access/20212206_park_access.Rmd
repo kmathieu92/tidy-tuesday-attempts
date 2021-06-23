@@ -3,11 +3,25 @@ title: "Park Access - Tidy Tuesday"
 output: html_notebook
 ---
 
-
+# Load data and preview
 ```{r}
 library(tidyverse)
 library(ggplot2)
 
 parks <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-06-22/parks.csv')
+
+head(parks)
+view(parks)
+```
+
+# Dallas data 
+```{r}
+parks %>% filter(city == "Dallas") %>% filter(total_points )
+
+ggplot(parks, aes(year, rank))+
+  geom_path()
+
+
+
 ```
 
